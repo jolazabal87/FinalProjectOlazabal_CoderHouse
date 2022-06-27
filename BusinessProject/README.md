@@ -1,12 +1,12 @@
 
-###**Business Project**
+###**Business Project**###
 
 
 El proceso creativo de la APP involucra la intención de poder lograr (en base a los conocimientos adquridos durante el curso)
 un playground de un comercio y la posibilidad de escalarlo a un E-commerce (o al menos un cart)
 utilizando el lenguaje Python, el framework Django y respetando el patrón de diseño MVT
 
-##*Entrega intermedia*
+##*Entrega intermedia*##
 #Objetivo = cumplir con lo requerido en la consigna (herencias, modelos, creación, busqueda)
 Para cumplir con la misma realizamos las siguientes acciones:
 - iniciamos el proyecto con Django (startproject)
@@ -22,16 +22,16 @@ Para cumplir con la misma realizamos las siguientes acciones:
 - despues diseñamos los formularios para la creación y busqueda (CR)
     -para cumplir con la consigan lo hicimos parcialmente
 
-#Pendientes
+#Pendientes#
 - escalar lo expuesto arriba a todas las funcionalidades de la app
 - darle el diseño definitivo y propio de la app
 - incluir imagenes y textos
 - crear una navegación sólida a partir de las rutas
 
-#Próximos pasos 
+#Próximos pasos# 
 - Implementar finalmente el CRUD con la inclusión del Update y del delete
 
-#Consultas a los profesores y tutores
+#Consultas a los profesores y tutores#
 - como subir una Imagen desde el form y como almacenarla ??
 - se puede subir más de 1 ??
 - en el caso del checkbox... como se puede hacer para captar el false ??
