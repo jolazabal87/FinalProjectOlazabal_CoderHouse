@@ -1,0 +1,14 @@
+{% extends "BusinessApp/base_padre.html" %}
+
+{% block contenidoQueCambia %}
+
+    <h1>This is the main page</h1>
+    <p>These are our products</p>
+    {% for p in res %}
+    <ul>
+        <li>            
+            {{ p }}
+        </li>
+    </ul>
+    {% endfor %}
+{% endblock %}

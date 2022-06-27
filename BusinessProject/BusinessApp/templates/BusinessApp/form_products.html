@@ -1,0 +1,52 @@
+{% extends "BusinessApp/base_padre.html" %}
+
+{% block contenidoQueCambia %}
+
+    <h1>This is the form products</h1>
+
+    <form method="POST" action="">{% csrf_token %}
+        <!--
+        <div class="mb-3">
+          <label class="form-label">Nombre del producto</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripción del producto</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Marca</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Categoría</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Código de barra</label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Stock</label>
+            <input type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Imagen del producto</label>
+            <input type="file" class="form-control">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Activo</label>
+        </div>        
+        -->
+            <div class="mb-3 form-label">
+                {{ form.as_p }}
+            </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </form>
+    
+{% endblock %}
