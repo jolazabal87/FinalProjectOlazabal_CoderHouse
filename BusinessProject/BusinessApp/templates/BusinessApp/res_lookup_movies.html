@@ -1,0 +1,31 @@
+{% extends "BusinessApp/base_padre.html" %}
+
+{% block contenidoQueCambia %}
+
+    <h1>We are looking for movie: <strong>{{ movie }}</strong></h1>
+    
+    {% if res %}
+    <div class="row mx-auto">   
+        {% for p in res %}    
+                 
+            <div class="card mx-auto" style="width: 17rem;">    
+                <a href="{% url 'show_one_movie' p.title %}">
+                  <img class="card-img-top"  src="{{ p.img.url }}"  alt="Card image cap">
+                </a>
+            <div class="card-body">
+                <h5 class="card-title fw-bold">   {{ p.title  }}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ p.genre_name }}</li>
+                <li class="list-group-item">Sinopsis: {{ p.sinopsis  }}</li>
+                <li class="list-group-item">Valoración: {{ p.mark  }}/10</li>
+            </ul>
+            </div>
+        
+        {% endfor %}
+        
+        </div> 
+        {% endif %}
+    {{ res_not_founded }}
+
+{% endblock %}

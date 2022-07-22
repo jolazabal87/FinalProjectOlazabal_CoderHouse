@@ -2,13 +2,67 @@
 
 {% block contenidoQueCambia %}
 
-    <h1>This is the main page</h1>
-    <p>These are our products</p>
-    {% for p in res %}
-    <ul>
-        <li>            
-            {{ p }}
-        </li>
-    </ul>
-    {% endfor %}
+    {% if request.user.is_authenticated %}
+    <h1>Hola, {{ user.username }} 👋</h1>
+    {% else %}
+    <h1>Hola 👋 Si estas registrado ingresa aqui <a href="{% url 'login_user' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i></a></h1>    
+    {% endif %}
+      
+
+    <div class="row row-cols-6 row-cols-lg-3 align-items-stretch g-2 py-3">
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <a href="show_users" class="text-decoration-none text-reset"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Usuarios</h2></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+              
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">   
+                    <a href="movies" class="text-decoration-none text-reset"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Peliculas</h2></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+              
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">   
+                    <a href="genres" class="text-decoration-none text-reset"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Generos</h2></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">   
+                    <a href="show_movies_to_ticket" class="text-decoration-none text-reset"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Ticket</h2></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">   
+                    <a href="blog" class="text-decoration-none text-reset"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Blog</h2></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">   
+                    <a href="about_us" class="text-decoration-none text-reset"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Nosotros</h2></a>
+                </div>
+            </div>
+        </div>
+   
+    </div>
+
+ 
+
 {% endblock %}

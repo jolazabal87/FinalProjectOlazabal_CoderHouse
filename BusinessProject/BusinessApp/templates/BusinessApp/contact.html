@@ -1,0 +1,14 @@
+{% extends "BusinessApp/base_padre.html" %}
+
+{% block contenidoQueCambia %}
+
+    <h1>This is the form <strong>CONTACT</strong></h1>
+
+    <form method="POST" action=""> {% csrf_token %}
+        <table class="mb-3 form-label">
+            {{ form.as_table }}
+        </table>
+    <button type="submit" class="btn btn-outline-success">Enviar</button>
+  </form>
+
+{% endblock %}

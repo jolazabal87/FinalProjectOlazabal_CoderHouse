@@ -1,57 +1,55 @@
-from unicodedata import name
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models import F, Sum, FloatField
 
 # Create your models here.
-
-class Brands(models.Model):
+class Genre(models.Model):
     name = models.CharField(max_length=20)
     description = models.CharField(max_length=50)
-    #logo = models.ImageField(upload_to='images/', null=True, blank=True)
-
-class Categories(models.Model):
-    name = models.CharField(max_length=20)
-    description = models.CharField(max_length=50)
-       
-class Products(models.Model):
-    name = models.CharField(max_length=20)
-    description = models.CharField(max_length=50)
-    brand = models.CharField(max_length=50)
-    category = models.CharField(max_length=20)
-    bar_code = models.IntegerField()
-    price = models.FloatField()
-    stock = models.IntegerField() 
-    #img = models.ImageField(upload_to='images/', null=True, blank=True)
-    active = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"Producto: {self.name}"
-
-class Clients(models.Model):
-    name = models.CharField(max_length=20)
-    tax_code = models.IntegerField()
-    address = models.CharField(max_length=20)
-    cluster = models.CharField(max_length=20)
-    contact = models.EmailField()
-    #web_site = models.URLField()
-    #logo = models.ImageField(upload_to='images/', null=True, blank=True)
-    active = models.BooleanField()
-
-class Suppliers(models.Model):
-    name = models.CharField(max_length=20)
-    tax_code = models.IntegerField()
-    cluster = models.CharField(max_length=20)
-    contact = models.EmailField()
-    #web_site = models.URLField()
-    #logo = models.ImageField(upload_to='images/', null=True, blank=True)
-    active = models.BooleanField()
-
-class Purchase_order(models.Model):
-    date = models.DateField()
-    client = models.CharField(max_length=20)
-    product = models.CharField(max_length=20)
-    price = models.FloatField()
+        return f"Genero: {self.name}"
+class Movie(models.Model):
+    title = models.CharField(max_length=20)
+    sinopsis = models.CharField(max_length=500)
+    genre_name = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    mark = models.IntegerField()
+    price = models.FloatField() 
+    stock = models.IntegerField() 
+    img = models.ImageField(upload_to='images', null=True, blank=True)
+    active = models.BooleanField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"Película: {self.title}; img: {self.img}"
+class Ticketet(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    @property
+    def total(self):
+        return self.Detail_ticket_set.aggregate(
+            total = Sum(F("price") * F("quantity"), output_field = FloatField()) 
+        )["total"]
+class Detail_ticket(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    ticket = models.ForeignKey(Ticketet, on_delete=models.CASCADE)
     quantity = models.IntegerField()
-    delivery_address = models.CharField(max_length=20)
-    delivery_date = models.DateField()
-    active = models.BooleanField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+class Blog(models.Model):
+    date_released = models.DateField()
+    post = models.CharField(max_length=500)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='blog', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+    
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='avatars', null=True, blank=True)
     

@@ -1,0 +1,31 @@
+{% extends "BusinessApp/base_padre.html" %}
+
+{% block contenidoQueCambia %}
+
+<h1>These are our <strong>USERS</strong></h1>
+<div class="row mx-auto">       
+{% if users %}
+    {% for u in users %}    
+        {% for a in avatars %} 
+            {% if u.id == a.user_id %} 
+         
+    <div class="card mx-auto" style="width: 17rem;">    
+        <img class="card-img-top"  src="{{ a.img.url }}"  alt="Card image cap">
+                {% endif %}
+            {% endfor %} 
+    <div class="card-body">
+        <h5 class="card-title">   {{ u.username  }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email: {{ u.email }}</li>
+        <li class="list-group-item">Admin: {{ u.is_superuser  }}</li>
+        <li class="list-group-item">Ultima entrada: {{ u.last_login  }}</li>
+    </ul>
+    </div>
+
+    {% endfor %}
+{% endif %}
+</div>  
+
+
+{% endblock %}
