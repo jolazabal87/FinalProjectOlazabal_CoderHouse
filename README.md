@@ -1,5 +1,5 @@
 
-#**Business Project**
+#Business Project
 
 El objetivo de nuestra APP es generar un espacio para que la comunidad de gente amante del cine clásico
 pueda compartir sus films, videos, records que tenga a disposición y que pueda ofrecerla dentro de la comunidad (compra/venta) además de compartir sus opiniones a traves del blog y/o hacer consultas a traves de una sección específica.
