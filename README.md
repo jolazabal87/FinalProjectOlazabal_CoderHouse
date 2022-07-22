@@ -35,6 +35,9 @@ La performance fue testeada en las diferentes etapas del desarrollo con diferent
 Adicional desarrollamos nuestra API para poder compartir nuestra información con diferentes lenguajes de programación. (Django rest_framwork)
 El TO DO que nos queda pendiente es poder integrarlo a una aplicación front end desarrollada en REACT.
 
+``Link``
+[Managed Disks](#managed-disks)
+
 ``About Me``
 Mi nombre es Ignacio Olazábal.
 Soy profesional de Ciencia Económicas, más precisamente Contador Público. Hace ya muchos años que formo parte del mundo corporativo, orientado a Pymes en el sector de consumo masivo, donde he liderado varios negocios y he formado parte de proyectos de desarrollo de marcas (Aleluya, JuanValdez) tanto en el mercado local como en el internacional.
